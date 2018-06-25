@@ -1,0 +1,11 @@
+.red{
+    background-color:red;
+    float: left;
+    height: 100px;
+    width: 100%;
+    margin: 5px;
+}
+
+.yellow{
+    background-color:yellow;
+}
