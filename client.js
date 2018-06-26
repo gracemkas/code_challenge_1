@@ -6,33 +6,28 @@ function readyNow() {
 
 function addClickHandlers() {
     $('#generate').on('click', handleGenerate);
-    $('#swap').on('click', handleSwap);
-    $('#delete').on('click', handleDelete);
+    $('#main').on('click', '.swap', handleSwap);
+    $('#main').on('click', '.delete', handleDelete);
 }
 
 function handleGenerate() {
-    numberClicks();
-    $('.block').append(
-        `<div class="red">
-            <p class="numberOfClicks"><p>
-            <button class="swap">Swap</button>
-            <button class="delete">Delete</button>
-        </div>`);
-    $('.swap').on('click', handleSwap);
-    $('.delete').on('click', handleDelete);
+    numberOfClicks++;
+    let outputString = '<div class="red">';
+
+    outputString += '<p>' + numberOfClicks + '</p>';
+    outputString += '<button class="swap">swap</button>';
+    outputString += '<button class="delete">delete</button>';
+
+    outputString += '</div>';
+    $('#main').append(outputString);
 }
 
 let numberOfClicks = 0;
 
-function numberClicks(){
-    numberOfClicks++;
-    $('.numberOfClicks').text(numberOfClicks);
-}
-
 function handleSwap() {
-    $(this).parent().parent().toggleClass('yellow');
+    $(this).parent().toggleClass('yellow');
 }
 
 function handleDelete() {
-    $(this).parent().parent().remove();
+    $(this).parent().remove();
 }
